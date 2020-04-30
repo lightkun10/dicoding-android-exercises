@@ -17,6 +17,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val btnMoveWithDataActivity: Button = findViewById(R.id.btn_move_activity_data)
         btnMoveWithDataActivity.setOnClickListener(this)
+
+        val btnMoveWithObject: Button = findViewById(R.id.btn_move_activity_object)
+        btnMoveWithObject.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -36,7 +39,33 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.btn_move_activity_data -> {
+                val moveWithDataIntent = Intent(this@MainActivity, MoveWithDataActivity::class.java)
 
+                /* Menempatkan data ke obyek Intent pada baris ini. */
+                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_NAME, "PandupanduPanda")
+                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 25)
+                startActivity(moveWithDataIntent)
+
+                /* Pergi ke MoveWithDataActivity.kt untuk langkah selanjutnya. */
+            }
+
+            R.id.btn_move_activity_object -> {
+                /* Membuat Obyek Person bernama 'person'
+                yang mana kelas tersebut adalah Parcelable. */
+                val person = Person(
+                    "Pandu Panda",
+                    25,
+                    "academy@dicoding.com",
+                    "Pekanbaru"
+                )
+
+                /* Mengirimkan obyek 'person' ke MoveWithObjectActivity melalui intent di bawah: */
+                val moveWithObjectIntent = Intent(this@MainActivity, MoveWithObjectActivity::class.java)
+                moveWithObjectIntent.putExtra(MoveWithObjectActivity.EXTRA_PERSON, person)
+                startActivity(moveWithObjectIntent)
+
+                /* EXTRA_PERSON adalah variable static bertipe data string bernilai "extra_person".
+                   Berfungsi sebagai key untuk mendapatkan value data yang dikirim. */
             }
         }
     }
