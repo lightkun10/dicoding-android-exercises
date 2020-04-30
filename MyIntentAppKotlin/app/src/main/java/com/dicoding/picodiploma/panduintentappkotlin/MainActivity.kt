@@ -6,8 +6,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+
+    private lateinit var tvResult: TextView
+
+    companion object {
+        private const val REQUEST_CODE = 110
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +32,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val btnDialPhone: Button = findViewById(R.id.btn_dial_number)
         btnDialPhone.setOnClickListener(this)
+
+        val btnMoveForResult: Button = findViewById(R.id.btn_move_for_result)
+        btnMoveForResult.setOnClickListener(this)
+
+        tvResult = findViewById(R.id.tv_result);
     }
 
     override fun onClick(v: View) {
@@ -48,9 +61,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 /* Menempatkan data ke obyek Intent pada baris ini. */
                 moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_NAME, "PandupanduPanda")
                 moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 25)
-                startActivity(moveWithDataIntent)
 
                 /* Pergi ke MoveWithDataActivity.kt untuk langkah selanjutnya. */
+                startActivity(moveWithDataIntent)
             }
 
             R.id.btn_move_activity_object -> {
@@ -79,6 +92,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(dialPhoneIntent)
             }
 
+            R.id.btn_move_for_result -> {
+                val moveForResultIntent = Intent(this@MainActivity, MoveForResultActivity::class.java)
+                startActivityForResult(moveForResultIntent, REQUEST_CODE)
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == MoveForResultActivity.RESULT_CODE) {
+                val selectedValue = data?.getIntExtra(MoveForResultActivity.EXTRA_SELECTED_VALUE, 0)
+                tv_result.text = "Hasil : $selectedValue"
+            }
         }
     }
 }
