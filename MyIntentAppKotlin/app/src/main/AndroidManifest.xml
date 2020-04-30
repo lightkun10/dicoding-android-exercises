@@ -9,15 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MoveActivity"></activity>
+        <activity android:name=".MoveWithDataActivity"></activity>
+        <activity android:name=".MoveActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
+
                 <!-- MainActivity menjadi entry point ke aplikasi. -->
                 <action android:name="android.intent.action.MAIN" />
 
-                <!-- MainActivity akan dikategorikan sebagai activity launcher.
+                <!--
+                     MainActivity akan dikategorikan sebagai activity launcher.
                     Ini menandakan bahwa activity ini akan muncul di halaman
-                    home screen dalam bentuk launcher. -->
+                    home screen dalam bentuk launcher.
+                -->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

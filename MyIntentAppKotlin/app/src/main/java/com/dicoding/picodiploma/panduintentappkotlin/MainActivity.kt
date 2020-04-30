@@ -13,8 +13,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
 
         val btnMoveActivity: Button = findViewById(R.id.btn_move_activity)
-
         btnMoveActivity.setOnClickListener(this)
+
+        val btnMoveWithDataActivity: Button = findViewById(R.id.btn_move_activity_data)
+        btnMoveWithDataActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -31,6 +33,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
                 /* Menjalankan activity baru tanpa membawa data. */
                 startActivity(moveIntent)
+            }
+
+            R.id.btn_move_activity_data -> {
+
             }
         }
     }
