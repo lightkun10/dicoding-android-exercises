@@ -1,6 +1,7 @@
 package com.dicoding.picodiploma.panduflexiblefragment
 
 import android.accounts.AuthenticatorDescription
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -67,8 +68,15 @@ class DetailCategoryFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View) {
         when (v.id) {
             R.id.btn_profile -> {
-
+                val mIntent = Intent(activity, ProfileActivity::class.java)
+                startActivity(mIntent)
             }
+
+            /* Mengapa pakai activity/getActivity() ?
+               Hal ini karena kita menggunakan Fragment, sedangkan fungsi this
+               hanya bisa dipanggil melalui Activity. Oleh karena itulah,
+               kita menggunakan activity/getActivity() untuk mendapatkan context
+               dari activity tempat fragment ini menempel.*/
 
             R.id.btn_show_dialog -> {
                 val mOptionDialogFragment = OptionDialogFragment()
