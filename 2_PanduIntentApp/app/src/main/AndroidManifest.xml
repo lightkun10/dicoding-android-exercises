@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.panduintentapp">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MoveForResultActivity"></activity>
+        <activity android:name=".MoveWithObjectActivity" />
+        <activity android:name=".MoveWithDataActivity" />
+        <activity android:name=".MoveActivity" />
+        <activity android:name=".MainActivity">
+
+            <!--
+            Intent-filter is a mechanism to decide how an activity
+            being run by Android Runtime(ART) or Dalvik Virtual Machine (DVM).
+            -->
+            <intent-filter>
+
+                <!-- Set MainActivity as entry point to application -->
+                <action android:name="android.intent.action.MAIN" />
+
+                <!--
+                     MainActivity will be categorized as activity launcher.
+                     This means that this activity will come to home screen page
+                     as a launcher.
+                -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
