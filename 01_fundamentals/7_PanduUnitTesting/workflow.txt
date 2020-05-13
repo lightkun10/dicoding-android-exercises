@@ -1,0 +1,24 @@
+Tujuan
+Pada Codelab kali ini Anda akan menggunakan Junit untuk 
+melakukan testing pada aplikasi Cuboid atau Balok. 
+Poin penting yang tercakup dalam materi ini adalah bagaimana 
+cara menggunakan Junit untuk mengetes unit testing Anda .
+
+
+Logika Dasar
+Menjalankan Aplikasi → melakukan pengujian secara manual 
+→ melakukan pengujian dengan Unit Testing 
+→ akan mendapatkan hasil pengujian secara otomatis.
+
+
+
+Skenario Pengujian
+Berikut ini adalah skenario pengujian Unit Testing yg akan 
+dilakukan di codelab Unit Testing menggunakan Mockito:
+
+-   Memastikan hasil volume balok sesuai dengan yang diharapkan.
+-   Memastikan hasil luas permukaan balok sesuai dengan yang diharapkan.
+-   Memastikan hasil keliling balok sesuai dengan yang diharapkan.
+-   Memastikan metode hitung volume terpanggil.
+-   Memastikan metode luas permukaan terpanggil.
+-   Memastikan metode keliling terpanggil.
