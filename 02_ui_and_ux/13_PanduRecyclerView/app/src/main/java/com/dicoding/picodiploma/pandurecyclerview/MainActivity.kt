@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -50,7 +51,13 @@ class MainActivity : AppCompatActivity() {
         rv_heroes.adapter = listHeroAdapter
     }
 
-    /* NOTE: This class(MenuInflater) is used to instantiate menu XML files into Menu objects*/
+    private fun showRecyclerGrid() {
+        rv_heroes.layoutManager = GridLayoutManager(this, 2)
+        val gridHeroAdapter = GridHeroAdapter(list)
+        rv_heroes.adapter = gridHeroAdapter
+    }
+
+    /* NOTE: This class(MenuInflater) is used to instantiate menu XML files into Menu objects */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
@@ -67,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                 showRecyclerList()
             }
             R.id.action_grid -> {
-
+                showRecyclerGrid()
             }
             R.id.action_cardview -> {
 
