@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.pandurecyclerview
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,6 +38,9 @@ class CardViewHeroAdapter(private val listHero: ArrayList<Hero>) : RecyclerView.
                     .apply(RequestOptions().override(350, 550))
                     .into(img_item_photo)
 
+                /* Glide digunakan untuk memuat sebuah gambar, baik yang sudah disiapkan
+                   di drawable maupun berada di server. */
+
                 tv_item_name.text = hero.name
                 tv_item_description.text = hero.description
 
@@ -51,6 +55,12 @@ class CardViewHeroAdapter(private val listHero: ArrayList<Hero>) : RecyclerView.
                 // Set effect when item is clicked
                 itemView.setOnClickListener {
                     Toast.makeText(itemView.context, "Kamu memilih: ${hero.name}", Toast.LENGTH_SHORT).show() }
+
+                // EXPERIMENTAL. Change intent when button is clicked
+//                btn_detail.setOnClickListener {
+//                    val intent = Intent(itemView.context, DetailActivity::class.java)
+//                    itemView.context.startActivity(intent)
+//                }
             }
         }
     }

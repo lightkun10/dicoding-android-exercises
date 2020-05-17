@@ -37,6 +37,9 @@ class ListHeroAdapter(private val listHero: ArrayList<Hero>) : RecyclerView.Adap
                     .apply(RequestOptions().override(55, 55))
                     .into(img_item_photo)
 
+                /* Glide digunakan untuk memuat sebuah gambar, baik yang sudah disiapkan
+                   di drawable maupun berada di server. */
+
                 tv_item_name.text = hero.name
                 tv_item_description.text = hero.description
 

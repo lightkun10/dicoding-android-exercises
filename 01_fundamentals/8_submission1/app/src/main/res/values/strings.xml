@@ -3,11 +3,9 @@
     <string name="user_username">Username User</string>
     <string name="user_repository">lorem ipsum dolor sit amet</string>
     <string name="user_name">Nama User</string>
-    <string name="location">lokasi</string>
-    <string name="company">perusahaan</string>
-    <string name="followers">followers</string>
-    <string name="following">following</string>
-    <string name="object_received">Object Diterima</string>
+    <string name="location">lokasi: %1$s</string>
+    <string name="followers">followers: %1$s</string>
+    <string name="following">following: %1$s</string>
 
     <string-array name="username">
         <item>JakeWharton</item>

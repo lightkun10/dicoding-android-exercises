@@ -30,6 +30,11 @@ class MainActivity : AppCompatActivity() {
         // atur fixed size recyclerview yang sudah dibuat di activity_main
         rv_heroes.setHasFixedSize(true)
 
+        /* Kode diatas menjelaskan bahwa:
+           bila fixed size bernilai true, maka recyclerview dapat melakukan optimasi
+           ukuran lebar & tinggi secara otomatis. Nilai lebar dan tinggi
+           recyclerview menjadi konstan. */
+
         // Reset mode if no data being saved
         if (savedInstanceState == null) {
             setActionBarTitle(title)
@@ -84,6 +89,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showRecyclerList() {
+        /* Perlu menentukan nilai pada metode setLayoutManager() saja
+           untuk menentukan bagaimana recyclerview ditampilkan. */
         rv_heroes.layoutManager = LinearLayoutManager(this)
         val listHeroAdapter = ListHeroAdapter(list)
         rv_heroes.adapter = listHeroAdapter
@@ -96,6 +103,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showRecyclerGrid() {
+        /* Perlu menentukan nilai pada metode setLayoutManager() saja
+           untuk menentukan bagaimana recyclerview ditampilkan. */
         rv_heroes.layoutManager = GridLayoutManager(this, 2)
         val gridHeroAdapter = GridHeroAdapter(list)
         rv_heroes.adapter = gridHeroAdapter
@@ -113,8 +122,9 @@ class MainActivity : AppCompatActivity() {
         rv_heroes.adapter = cardViewHeroAdapter
     }
 
-    /* NOTE: This class(MenuInflater) is used to instantiate menu XML files into Menu objects */
+    /* REVIEW: This class(MenuInflater) is used to instantiate menu XML files into Menu objects */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // convert menu_main.xml into a menu displayed in activity
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
     }
@@ -124,6 +134,7 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    /* Handle events when each item being selected/pressed */
     private fun setMode(selectedMode: Int) {
         when(selectedMode) {
             R.id.action_list -> {

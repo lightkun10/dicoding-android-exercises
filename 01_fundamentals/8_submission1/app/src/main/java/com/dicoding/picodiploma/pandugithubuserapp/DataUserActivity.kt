@@ -23,16 +23,16 @@ class DataUserActivity : AppCompatActivity() {
         tvNameReceived.text = user.name
         // username user
         val tvUsernameReceived: TextView = findViewById(R.id.tv_username_received)
-        tvUsernameReceived.text = "@${user.username}"
+        tvUsernameReceived.text = user.username
         // lokasi user
         val tvLocationReceived: TextView = findViewById(R.id.tv_location_received)
-        tvLocationReceived.text = "Lokasi: ${user.location}"
+        tvLocationReceived.text = getString(R.string.location, user.location)
         // followers user
         val tvFollowersReceived: TextView = findViewById(R.id.tv_followers_received)
-        tvFollowersReceived.text = "Followers: ${user.followers}"
+        tvFollowersReceived.text = getString(R.string.followers, user.followers.toString())
         // following user
         val tvFollowingReceived: TextView = findViewById(R.id.tv_following_received)
-        tvFollowingReceived.text = "Following: ${user.following}"
+        tvFollowingReceived.text = getString(R.string.following, user.following.toString())
     }
 
 

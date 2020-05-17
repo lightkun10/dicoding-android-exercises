@@ -40,7 +40,7 @@ class UserAdapter internal constructor(private val context: Context) : BaseAdapt
         internal fun bind(user: User) {
             txtUserName.text = user.username
             txtRepository.text = "User repository: ${user.repository.toString()}"
-            user?.avatar?.let { imgAvatar.setImageResource(it) }
+            user.avatar?.let { imgAvatar.setImageResource(it) }
         }
     }
 }

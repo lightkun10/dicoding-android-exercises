@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <!-- Untuk menerpakan perpindahan antar Fragment, Anda perlu
+    menambahkan atribut id yang ada di menu ke Navigation Graph,
+    contohnya pada mobile_navigation yaitu sebagai berikut: -->
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.dicoding.picodiploma.pandunavigationdrawer.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+    <!-- Selain id, ada name yg berisi nama kelas Fragment, label, & layout.
+    Dengan menambahkan kode ini, maka secara otomatis proses perpindahan Fragment
+    sudah diatur oleh Navigation Component, sehingga Anda tdk perlu melakukan
+    transaksi / pemanggilan fragment satu per satu. -->
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.dicoding.picodiploma.pandunavigationdrawer.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.dicoding.picodiploma.pandunavigationdrawer.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_cart"
+        android:name="com.dicoding.picodiploma.pandunavigationdrawer.CartFragment"
+        android:label="@string/menu_cart"
+        tools:layout="@layout/fragment_cart" />
+
+    <activity
+        android:id="@+id/nav_subway"
+        android:name="com.dicoding.picodiploma.pandunavigationdrawer.SubwayActivity"
+        android:label="@string/menu_subway"
+        tools:layout="@layout/activity_subway" />
+
+</navigation>
